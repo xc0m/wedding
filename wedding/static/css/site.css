@@ -1,0 +1,211 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.container {
+    max-width: 55em;
+}
+
+.rich-text {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.block-heading {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+width: 100%;
+padding: 1em;
+background: #fff;
+border: 1px solid rgba(0,0,0,.12);
+font-family: inherit;
+font-size: 15px;
+line-height: normal;
+outline: none;
+-webkit-transition: background .3s ease-out,border .3s ease-out;
+-moz-transition: background .3s ease-out,border .3s ease-out;
+-ms-transition: background .3s ease-out,border .3s ease-out;
+-o-transition: background .3s ease-out,border .3s ease-out;
+transition: background .3s ease-out,border .3s ease-out;
+}
+
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+
+}
+
+.sidebar {
+  background: url('http://127.0.0.1:8000/static/bg.jpg');
+  background-size: cover;
+}
+
+.homepage {
+  margin-top: 5rem;
+}
+
+.topbar {
+ background-color: #F2F2F2;
+ height: 10rem;
+}
+
+
+
+.homepage-sidebar {
+  background: url('http://127.0.0.1:8000/static/homepage.jpg');
+  background-size: cover;
+}
+
+.form-control {
+  border: 1px solid #dddddd;
+  border-radius: 0;
+}
+
+.login {
+  background: #F0F0F0;
+  border: 1px solid #C6D6D6;
+  color: #000;
+}
+
+.btn-link-gray {
+  font-weight: 400;
+  color: #212529;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%;
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+#id_status{
+  list-style: none;
+}
+
+/*Styling Selectbox*/
+.dropdown {
+  width: 300px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgb(204, 204, 204);
+  transition: all .5s ease;
+  position: relative;
+  font-size: 14px;
+  color: #474747;
+  height: 100%;
+  text-align: left
+}
+.dropdown .select {
+    cursor: pointer;
+    display: block;
+    padding: 10px
+}
+.dropdown .select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+}
+.dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204)
+}
+.dropdown:active {
+    background-color: #f8f8f8
+}
+.dropdown.active:hover,
+.dropdown.active {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 5px 5px 0 0;
+    background-color: #f8f8f8
+}
+.dropdown.active .select > i {
+    transform: rotate(-90deg)
+}
+.dropdown .dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 5px 5px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9
+}
+.dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+}
+.dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+.dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2
+}

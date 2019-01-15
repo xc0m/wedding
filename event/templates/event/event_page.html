@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+  <div class="row homepage align-items-center">
+
+      <div class="col">
+        TOGETHER WITH
+        THEIR FAMILIES
+        <h1>{{ page.title }}</h1>
+        Dear {{ user.guest.guestOne_firstName }} & {{ user.guest.guestTwo_firstName }},
+        {{ page.description | richtext }}
+        {{ page.date | richtext }}
+        {{ page.location | richtext }}
+        {{ page.event }}
+
+        <hr>
+        <h1>RSVP Form</h1>
+        Please Respond by 1st December 2019
+
+{% load widget_tweaks %}
+<form action="." method="POST" class="form">
+    {% csrf_token %}
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">Guest One</label>
+              {{ form.guestOne|add_class:'form-control' }}
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">Guest Two</label>
+              {{ form.guestTwo|add_class:'form-control' }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault03">Phone Number</label>
+              {{ form.phonenumber|add_class:'form-control' }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-8 mb-8">
+              <label for="exampleFormControlTextarea1">Postal Address</label>
+              {{ form.address|attr:"rows:3"|add_class:'form-control' }}
+              <br>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-8 mb-8">
+              <label for="exampleFormControlTextarea1">RSVP</label>
+              {{ form.status }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-8 mb-8">
+              <label for="exampleFormControlTextarea1">Comment Box</label>
+              {{ form.comment|attr:"rows:3"|add_class:'form-control' }}
+              <br>
+            </div>
+          </div>
+
+
+
+
+<button type="submit">Submit</button>
+
+{% include_block page.body %}
+
+
+
+      </div>
+
+  </div>
+{% endblock %}

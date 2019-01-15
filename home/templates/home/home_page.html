@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+  <div class="row homepage align-items-center">
+
+      <div class="col">
+
+{% include_block page.body %}
+
+      </div>
+
+  </div>
+{% endblock %}
