@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls import include, url
+from django.urls import path
 from django.contrib import admin
 
 from wagtail.admin import urls as wagtailadmin_urls
@@ -13,7 +14,8 @@ urlpatterns = [
 
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
-
+    path('rsvp/', include('rsvp.urls')),
+    url(r'^blog/', include('blog.urls', namespace="blog")),
     url(r'^search/$', search_views.search, name='search'),
 
     # For anything not caught by a more specific rule above, hand over to

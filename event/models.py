@@ -67,7 +67,7 @@ class Rsvp(models.Model):
         return '%s - %s - %s' % (self.user, self.event, self.status)
 
 
-class EventPage(Page):
+class EventPage(RoutablePageMixin, Page):
     invitedUsers = ParentalManyToManyField(User, blank=True)
     event = models.ForeignKey(Event, on_delete=models.PROTECT)
     eventTitle = models.CharField(max_length=255)
@@ -85,36 +85,37 @@ class EventPage(Page):
         FieldPanel('invitedUsers', widget=forms.CheckboxSelectMultiple)
     ]
 
-    def serve(self, request):
-        from .forms import EventRSVPForm
-        from .models import Rsvp
+@route(r'^(\d+)/$')
+def form_view(self, request, form_id=None):
+    from .forms import EventRSVPForm
+    from .models import Rsvp
+    instance = get_object_or_404(Rsvp, id=form_id)
+
         #rsvp = RSVP.objects.get(pk=pk)
         #instance = get_object_or_404(Rsvp, id=rsvp)
         #instance = Rsvp.objects.get(pk=rsvp_id)
         #instance = Rsvp.objects.get(pk=rsvp.id)
 
 
-        instance = get_object_or_404(Rsvp, id=id)
-        form = EventRSVPForm(request.POST or None, instance=instance)
         #form = EventRSVPForm(request.POST or None)
-        if request.method == 'POST':
-            form = EventRSVPForm(request.POST)
-            if form.is_valid():
-                event = form.save(commit=False)
+    if request.method == 'POST':
+        form = EventRSVPForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
                 #event.user = request.user
-                event.event = self.event
-                event.save()
-                return render(request, 'flavours/thankyou.html', {
-                    'page': self,
-                    'event': event,
-                })
-        else:
-            form = EventRSVPForm()
+            event.event = self.event
+            event.save()
+            return render(request, 'flavours/thankyou.html', {
+                'page': self,
+                'event': event,
+            })
+    else:
+        form = EventRSVPForm()
 
-        return render(request, 'event/event_page.html', {
-            'page': self,
-            'form': form,
-        })
+    return render(request, 'event/event_page.html', {
+        'page': self,
+        'form': form,
+    })
 
 @receiver(post_save, sender=User)
 def create_rsvp(sender, instance, created, **kwargs):

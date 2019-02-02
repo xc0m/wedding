@@ -20,7 +20,15 @@
         <hr>
         <h1>RSVP Form</h1>
         Please Respond by 1st December 2019
-        {{ self.instance.id }}
+
+<br>
+
+        {% if user.is_authenticated %}
+            Welcome
+        '{{ user.username }}'
+            {% else %}
+            <a href="{% url django.contrib.auth.login %}">Login</a>
+        {% endif %}
 
 {% load widget_tweaks %}
 <form action="." method="POST" class="form">

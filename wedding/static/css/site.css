@@ -6,10 +6,6 @@ body {
     max-width: 55em;
 }
 
-.rich-text {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
 .block-heading {
   font-family: 'Lora', serif;
   font-size: 2rem;
@@ -208,4 +204,36 @@ transition: background .3s ease-out,border .3s ease-out;
 }
 .dropdown .dropdown-menu li:active {
     background-color: #e2e2e2
+}
+
+.meta.date {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.85em;
+  font-weight: 400;
+  margin-bottom: 1em;
+  color: #45484D;
+}
+
+.meta.date a {
+  color: #45484D;
+}
+
+.rich-text {
+  font-family: 'Cardo', serif;
+  font-weight: 400 ;
+  font-size: 1.1em;
+}
+
+.container .blog-post-item {
+  margin-top: 2.5em;
+  margin-bottom: 3em;
+  padding-bottom: 3em;
+  border-bottom: 1px solid #e5e4e1;
+}
+
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  color: #000000;
 }

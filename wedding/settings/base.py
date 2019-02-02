@@ -55,6 +55,10 @@ INSTALLED_APPS = [
     'wagtailcolumnblocks',
     'event',
 
+    'rsvp',
+    'blog',
+    'wagtail_simple_gallery',
+    'contactus'
 ]
 
 MIDDLEWARE = [
@@ -78,6 +82,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(PROJECT_DIR, 'templates'),
         ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
